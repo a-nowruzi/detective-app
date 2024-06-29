@@ -1,4 +1,4 @@
-import 'package:detective/pages/games/chess.dart';
+import 'package:detective/pages/games/chess/chess.dart';
 import 'package:detective/shared/app_bar.dart';
 import 'package:detective/shared/colors.dart';
 import 'package:flutter/material.dart';

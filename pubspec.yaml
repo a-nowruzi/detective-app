@@ -18,9 +18,11 @@ dependencies:
   get: ^4.6.6
   ionicons: ^0.2.2
   logging: ^1.2.0
-  chess: ^0.8.1
-  squares: ^1.2.1
-  square_bishop: ^0.3.0
+  flutter_chess_board: ^1.0.1
+  chess: ^0.7.0
+  stockfish: ^1.0.0
+  localstorage: ^4.0.1+4
+  get_it: ^7.6.7
 
 dev_dependencies:
   flutter_test:
@@ -35,6 +37,7 @@ flutter:
     - assets/images/intro/
     - assets/images/map/
     - assets/images/game/
+    - assets/games/chess/pieces/
   fonts:
     - family: aisa
       fonts:
