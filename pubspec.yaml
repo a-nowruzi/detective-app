@@ -37,7 +37,7 @@ flutter:
     - assets/images/intro/
     - assets/images/map/
     - assets/images/game/
-    - assets/games/chess/pieces/
+    # - assets/games/chess/pieces/
   fonts:
     - family: aisa
       fonts:

@@ -1,3 +1,4 @@
+import 'package:detective/shared/colors.dart';
 import 'piece.dart';
 import 'package:flutter/material.dart';
 import 'board.dart';
@@ -9,14 +10,14 @@ import 'logic.dart';
 
 final logic = GetIt.instance<GameLogic>();
 
-class GameScreen extends StatefulWidget {
-  const GameScreen({Key? key}) : super(key: key);
+class ChessGame extends StatefulWidget {
+  const ChessGame({super.key});
 
   @override
-  State<GameScreen> createState() => _GameScreenState();
+  State<ChessGame> createState() => _ChessGameState();
 }
 
-class _GameScreenState extends State<GameScreen> {
+class _ChessGameState extends State<ChessGame> {
   void update() => setState(() => {});
   @override
   void initState() {
@@ -144,7 +145,7 @@ class _GameScreenState extends State<GameScreen> {
                       logic.clear();
                       Navigator.popUntil(context, (route) => route.isFirst);
                       final snackBar = SnackBar(
-                          backgroundColor: Theme.of(context).bottomAppBarColor ,
+                          backgroundColor: Palette.banner,
                           content: Text(
                               "The game has been saved as ${game.name}",
                               style: TextStyle(color: Theme.of(context).primaryColorLight))

@@ -74,12 +74,12 @@ class GameLogicImplementation extends GameLogic {
   }
 
   static const pieceScores = {
-    PieceType.PAWN : 1,
-    PieceType.KNIGHT : 3,
-    PieceType.BISHOP : 3,
-    PieceType.ROOK : 5,
-    PieceType.QUEEN : 8,
-    PieceType.KING : 999,
+    'PAWN' : 1,
+    'KNIGHT' : 3,
+    'BISHOP' : 3,
+    'ROOK' : 5,
+    'QUEEN' : 8,
+    'KING' : 999,
   };
 
   int _getScore(PieceColor color) {
