@@ -10,11 +10,8 @@ class Shop extends StatefulWidget {
 }
 
 class _ShopState extends State<Shop> {
-  late Size size;
-
   @override
   Widget build(BuildContext context) {
-    size = MediaQuery.of(context).size;
     return Column(children: [
       appBar(),
       Expanded(child: ListView(padding: const EdgeInsets.only(left: 15, right: 10, top: 25), children: const []))

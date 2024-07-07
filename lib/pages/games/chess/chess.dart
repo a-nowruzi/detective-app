@@ -99,9 +99,7 @@ class _ChessGameState extends State<ChessGame> {
   void _showEndDialog(BuildContext context) {
     var title = "";
     if (logic.inCheckmate()) {
-      title = "Checkmate!\n" +
-          (logic.turn() == PieceColor.WHITE ? "Black" : "White") +
-          " Wins";
+      title = "Checkmate!\n${logic.turn() == PieceColor.WHITE ? "Black" : "White"} Wins";
     } else if (logic.inDraw()) {
       title = "Draw!\n";
       if (logic.insufficientMaterial()) {

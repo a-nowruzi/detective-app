@@ -13,7 +13,6 @@ class Games extends StatefulWidget {
 }
 
 class _GamesState extends State<Games> {
-  late Size size;
   late ScrollController _scrollController;
   double toolbarOpacity = 1.0;
 
@@ -34,9 +33,9 @@ class _GamesState extends State<Games> {
 
   @override
   Widget build(BuildContext context) {
-    size = MediaQuery.of(context).size;
     return Scaffold(
         appBar: Header.appBar('بازی ها'),
+        backgroundColor: Palette.bg,
         body: Column(
             children: [item('شطرنج ️', 'chess', const ChessGame()), item('تیک تاک تو ️', 'xo', const ChessGame())]));
   }
@@ -107,7 +106,9 @@ class AttributePainter extends CustomPainter {
   final double progressPercent;
   final double strokeWidth, filledStrokeWidth;
 
-  final bgPaint, strokeBgPaint, strokeFilledPaint;
+  final Paint bgPaint;
+  final Paint strokeBgPaint;
+  final Paint strokeFilledPaint;
 
   AttributePainter({
     required this.progressPercent,
