@@ -1,5 +1,5 @@
 import 'package:detective/pages/games/chess/chess.dart';
-import 'package:detective/pages/games/twentyFortyEight/twentyFortyEight.dart';
+import 'package:detective/pages/games/twentyFortyEight/twenty_forty_eight.dart';
 import 'package:detective/pages/games/xo/xo.dart';
 import 'package:detective/shared/app_bar.dart';
 import 'package:detective/shared/colors.dart';
@@ -39,7 +39,7 @@ class _GamesState extends State<Games> {
         appBar: Header.appBar('بازی ها'),
         backgroundColor: Palette.bg,
         body: Column(
-            children: [item('شطرنج ️', 'chess', const ChessGame()), item('تیک تاک تو ️', 'xo', const XO()), item('2048 ️', 'xo', const TwentyFortyEight())]));
+            children: [item('شطرنج ️', 'chess', const ChessGame()), item('تیک تاک تو', 'xo', const XO()), item('2048', 'xo', const TwentyFortyEight())]));
   }
 
   Widget item(String title, String image, Widget nav) {

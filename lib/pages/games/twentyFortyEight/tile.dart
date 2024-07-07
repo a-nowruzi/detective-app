@@ -6,11 +6,10 @@ class Tile extends StatefulWidget {
   double width, height;
   int color;
   double size;
-  Tile(this.number, this.width, this.height, this.color, this.size);
+  Tile(this.number, this.width, this.height, this.color, this.size, {super.key});
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return _TileState();
   }
 }
@@ -18,17 +17,12 @@ class Tile extends StatefulWidget {
 class _TileState extends State<Tile> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(
-      child: Center(
-        child: Text(
-          widget.number,
-          style: TextStyle(fontSize: widget.size, fontWeight: FontWeight.bold, color: Color(MyColor.fontColorTwoFour)),
-        ),
-      ),
-      width: widget.width,
-      height: widget.height,
-      decoration: BoxDecoration(color: Color(widget.color), borderRadius: BorderRadius.all(Radius.circular(10.0))),
-    );
+        width: widget.width,
+        height: widget.height,
+        decoration: BoxDecoration(color: Color(widget.color), borderRadius: const BorderRadius.all(Radius.circular(10.0))),
+        child: Center(
+            child: Text(widget.number,
+                style: TextStyle(fontSize: widget.size, fontWeight: FontWeight.bold, color: Color(MyColor.fontColorTwoFour)))));
   }
 }

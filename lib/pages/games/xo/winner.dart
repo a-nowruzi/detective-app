@@ -87,7 +87,7 @@ class _CongratulationsDialogOState extends State<CongratulationsDialogO> with Si
 class CongratulationsDialogX extends StatefulWidget {
   final VoidCallback onPressed;
 
-  CongratulationsDialogX({required this.onPressed});
+  const CongratulationsDialogX({super.key, required this.onPressed});
 
   @override
   _CongratulationsDialogXState createState() => _CongratulationsDialogXState();
@@ -171,7 +171,7 @@ class _CongratulationsDialogXState extends State<CongratulationsDialogX> with Si
 class CongratulationsDialogEqual extends StatefulWidget {
   final VoidCallback onPressed;
 
-  CongratulationsDialogEqual({required this.onPressed});
+  const CongratulationsDialogEqual({super.key, required this.onPressed});
 
   @override
   _CongratulationsDialogEqualState createState() => _CongratulationsDialogEqualState();
