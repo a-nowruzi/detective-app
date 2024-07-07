@@ -249,7 +249,7 @@ class GameLogicImplementation extends GameLogic {
   Game save() {
     String name =
         DateTime.now().toString().substring(0, 16) + (args.isMultiplayer ? " Multiplayer" : " vs ${args.difficultyOfAI}");
-    final id = '123';
+    const id = '123';
     Game game = Game(
       id: id,
       name: name,

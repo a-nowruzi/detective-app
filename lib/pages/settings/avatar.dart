@@ -6,7 +6,7 @@ import 'package:fluttermoji/fluttermoji.dart';
 import 'package:ionicons/ionicons.dart';
 
 class ChooseAvatar extends StatelessWidget {
-  const ChooseAvatar({Key? key}) : super(key: key);
+  const ChooseAvatar({super.key});
 
   @override
   Widget build(BuildContext context) {

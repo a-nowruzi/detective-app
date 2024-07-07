@@ -5,7 +5,7 @@ import '../../shared/colors.dart';
 import '../../shared/shape.dart';
 
 class Profile extends StatefulWidget {
-  const Profile({Key? key}) : super(key: key);
+  const Profile({super.key});
 
   @override
   State<Profile> createState() => _ProfileState();

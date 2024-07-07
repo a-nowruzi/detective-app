@@ -9,7 +9,7 @@ import 'package:ionicons/ionicons.dart';
 import '../app/bnav.dart';
 
 class IntroGameSignup extends StatefulWidget {
-  const IntroGameSignup({Key? key}) : super(key: key);
+  const IntroGameSignup({super.key});
 
   @override
   State<IntroGameSignup> createState() => _IntroGameSignupState();

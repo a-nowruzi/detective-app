@@ -22,8 +22,8 @@ class ChessAI {
     stockfish.stdin = "setoption name Skill Level value ${difficultyData['skillLevel']}";
     stockfish.stdin = "setoption name Use NNUE value false";
     stockfish.stdin = "position fen $fen";
-    stockfish.stdin = "go depth ${difficultyData['depth']} movetime $timeMS" +
-        (difficultyData['nodes'] != -1 ? "nodes ${difficultyData['nodes']}" : "");
+    stockfish.stdin =
+        "go depth ${difficultyData['depth']} movetime $timeMS${difficultyData['nodes'] != -1 ? "nodes ${difficultyData['nodes']}" : ""}";
     return stockfish.stdout.firstWhere((line) => line.startsWith("bestmove")).then((line) => line.split(" ")[1]);
   }
 }

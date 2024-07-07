@@ -9,7 +9,7 @@ class PlayerBar extends StatelessWidget {
   final bool isMe;
   final PieceColor color;
 
-  const PlayerBar(this.isMe, this.color, {Key? key}) : super(key: key);
+  const PlayerBar(this.isMe, this.color, {super.key});
 
   @override
   Widget build(BuildContext context) {

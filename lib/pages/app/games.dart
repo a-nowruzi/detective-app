@@ -6,7 +6,7 @@ import 'dart:math' as math;
 import 'package:get/get.dart';
 
 class Games extends StatefulWidget {
-  const Games({Key? key}) : super(key: key);
+  const Games({super.key});
 
   @override
   State<Games> createState() => _GamesState();
@@ -82,11 +82,11 @@ class AttributeWidget extends StatelessWidget {
   final IconData icon;
 
   const AttributeWidget({
-    Key? key,
+    super.key,
     required this.progress,
     this.size = 35,
     required this.icon,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

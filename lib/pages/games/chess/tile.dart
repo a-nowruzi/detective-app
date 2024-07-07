@@ -12,10 +12,9 @@ class Tile extends StatelessWidget {
   final String tileColor;
   final String index;
 
-  Tile({Key? key, required this.index})
+  Tile({super.key, required this.index})
       : piece = logic.get(index),
-        tileColor = logic.squareColor(index)!,
-        super(key: key);
+        tileColor = logic.squareColor(index)!;
 
   @override
   Widget build(BuildContext context) {

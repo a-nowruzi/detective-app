@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 
 class IntroGameAvatar extends StatefulWidget {
-  const IntroGameAvatar({Key? key}) : super(key: key);
+  const IntroGameAvatar({super.key});
 
   @override
   State<IntroGameAvatar> createState() => _IntroGameAvatarState();

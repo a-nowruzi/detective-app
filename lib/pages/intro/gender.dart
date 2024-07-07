@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 
 class IntroGameGender extends StatefulWidget {
-  const IntroGameGender({Key? key}) : super(key: key);
+  const IntroGameGender({super.key});
 
   @override
   State<IntroGameGender> createState() => _IntroGameGenderState();

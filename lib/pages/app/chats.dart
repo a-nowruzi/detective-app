@@ -3,7 +3,7 @@ import 'package:ionicons/ionicons.dart';
 import '../../shared/colors.dart';
 
 class Chats extends StatefulWidget {
-  const Chats({Key? key}) : super(key: key);
+  const Chats({super.key});
 
   @override
   State<Chats> createState() => _ChatsState();

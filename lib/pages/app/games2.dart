@@ -4,7 +4,7 @@ import 'dart:math' as math;
 import '../../shared/colors.dart';
 
 class Games extends StatefulWidget {
-  const Games({Key? key}) : super(key: key);
+  const Games({super.key});
 
   @override
   State<Games> createState() => _GamesState();
@@ -128,11 +128,11 @@ class AttributeWidget extends StatelessWidget {
   final Widget child;
 
   const AttributeWidget({
-    Key? key,
+    super.key,
     required this.progress,
     this.size = 42,
     required this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,4 @@
 import 'package:detective/shared/app_bar.dart';
-import 'package:detective/shared/colors.dart';
 import 'piece.dart';
 import 'package:flutter/material.dart';
 import 'board.dart';
@@ -95,38 +94,6 @@ class _ChessGameState extends State<ChessGame> {
                               const Spacer(flex: 9),
                             ])))
             ]));
-  }
-
-  void _showSaveDialog(BuildContext context) {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) => AlertDialog(
-                title: const Text("Saving"),
-                content: const Text("Do you want to save this game?"),
-                actions: [
-                  TextButton(
-                    onPressed: () {
-                      logic.clear();
-                      Navigator.popUntil(context, (route) => route.isFirst);
-                    },
-                    child: const Text("No"),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      final game = logic.save();
-                      logic.clear();
-                      Navigator.popUntil(context, (route) => route.isFirst);
-                      final snackBar = SnackBar(
-                          backgroundColor: Palette.banner,
-                          content: Text(
-                              "The game has been saved as ${game.name}",
-                              style: TextStyle(
-                                  color: Theme.of(context).primaryColorLight)));
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    },
-                    child: const Text("Yes"),
-                  ),
-                ]));
   }
 
   void _showEndDialog(BuildContext context) {

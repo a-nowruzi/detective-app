@@ -3,7 +3,7 @@ import 'package:ionicons/ionicons.dart';
 import '../../shared/colors.dart';
 
 class Shop extends StatefulWidget {
-  const Shop({Key? key}) : super(key: key);
+  const Shop({super.key});
 
   @override
   State<Shop> createState() => _ShopState();

@@ -6,7 +6,7 @@ import 'logic.dart';
 final logic = GetIt.instance<GameLogic>();
 
 class ChessBoard extends StatelessWidget {
-  const ChessBoard({Key? key}) : super(key: key);
+  const ChessBoard({super.key});
 
   @override
   Widget build(BuildContext context) {

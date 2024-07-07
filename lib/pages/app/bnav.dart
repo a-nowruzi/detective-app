@@ -8,7 +8,7 @@ import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 import 'package:ionicons/ionicons.dart';
 
 class AppBottomNav extends StatefulWidget {
-  const AppBottomNav({Key? key}) : super(key: key);
+  const AppBottomNav({super.key});
 
   @override
   State<AppBottomNav> createState() => _AppBottomNavState();
