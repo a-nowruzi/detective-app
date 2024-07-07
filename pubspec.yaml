@@ -38,6 +38,7 @@ flutter:
     - assets/images/map/
     - assets/images/game/
     - assets/games/chess/pieces/
+    - assets/games/xo/
   fonts:
     - family: aisa
       fonts:
