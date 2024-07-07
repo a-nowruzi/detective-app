@@ -1,3 +1,4 @@
+import 'package:detective/shared/app_bar.dart';
 import 'package:detective/shared/colors.dart';
 import 'piece.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class ChessGame extends StatefulWidget {
 
 class _ChessGameState extends State<ChessGame> {
   void update() => setState(() => {});
+
   @override
   void initState() {
     logic.addListener(update);
@@ -36,48 +38,32 @@ class _ChessGameState extends State<ChessGame> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Flexible(
-              flex: 7,
-              child: PlayerBar(isMe, color)
-          ),
+          Flexible(flex: 7, child: PlayerBar(isMe, color)),
           const Spacer(flex: 2),
           Flexible(
               flex: 7,
-              child: RotatedBox(
-                  quarterTurns: 2,
-                  child: PlayerBar(!isMe, color)
-              )
-          ),
-        ]
-    );
+              child:
+                  RotatedBox(quarterTurns: 2, child: PlayerBar(!isMe, color)))
+        ]);
   }
 
   @override
   Widget build(BuildContext context) {
-    final mainPlayerColor = logic.args.asBlack ? PieceColor.BLACK : PieceColor.WHITE;
-    final secondPlayerColor = logic.args.asBlack ? PieceColor.WHITE : PieceColor.BLACK;
+    final mainPlayerColor =
+        logic.args.asBlack ? PieceColor.BLACK : PieceColor.WHITE;
+    final secondPlayerColor =
+        logic.args.asBlack ? PieceColor.WHITE : PieceColor.BLACK;
 
     bool isMainTurn = mainPlayerColor == logic.turn();
     if (logic.isPromotion && (logic.args.isMultiplayer || isMainTurn)) {
-      Timer(const Duration(milliseconds: 100), () => _showPromotionDialog(context));
+      Timer(const Duration(milliseconds: 100),
+          () => _showPromotionDialog(context));
     } else if (logic.gameOver()) {
       Timer(const Duration(milliseconds: 500), () => _showEndDialog(context));
     }
 
     return Scaffold(
-        appBar: AppBar(
-            title: const Text('Chess Game'),
-            leading: IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () {
-                  if (!logic.gameOver()) {
-                    _showSaveDialog(context);
-                  } else {
-                    Navigator.popUntil(context, (route) => route.isFirst);
-                  }
-                }
-            )
-        ),
+        appBar: Header.appBar('شطرنج'),
         body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,50 +71,36 @@ class _ChessGameState extends State<ChessGame> {
               Expanded(
                   child: Align(
                       alignment: Alignment.bottomCenter,
-                      child:
-                      logic.args.isMultiplayer
+                      child: logic.args.isMultiplayer
                           ? _buildMultiplayerBar(false, secondPlayerColor)
-                          : Row(
-                          children: [
-                            Flexible(
-                              flex: 7,
-                              child: PlayerBar(false, secondPlayerColor),
-                            ),
-                            const Spacer(flex: 9),
-                          ]
-                      )
-                  )
-              ),
+                          : Row(children: [
+                              Flexible(
+                                flex: 7,
+                                child: PlayerBar(false, secondPlayerColor),
+                              ),
+                              const Spacer(flex: 9),
+                            ]))),
               // ignore: prefer_const_constructors
               ChessBoard(),
               Expanded(
                   child: Align(
                       alignment: Alignment.topCenter,
-                      child:
-                      logic.args.isMultiplayer
+                      child: logic.args.isMultiplayer
                           ? _buildMultiplayerBar(true, mainPlayerColor)
-                          : Row(
-                          children: [
-                            Flexible(
-                              flex: 7,
-                              child: PlayerBar(true, mainPlayerColor),
-                            ),
-                            const Spacer(flex: 9),
-                          ]
-                      )
-
-                  )
-              )
-            ]
-        )
-    );
+                          : Row(children: [
+                              Flexible(
+                                flex: 7,
+                                child: PlayerBar(true, mainPlayerColor),
+                              ),
+                              const Spacer(flex: 9),
+                            ])))
+            ]));
   }
 
   void _showSaveDialog(BuildContext context) {
     showDialog(
         context: context,
-        builder: (BuildContext context) =>
-            AlertDialog(
+        builder: (BuildContext context) => AlertDialog(
                 title: const Text("Saving"),
                 content: const Text("Do you want to save this game?"),
                 actions: [
@@ -148,15 +120,13 @@ class _ChessGameState extends State<ChessGame> {
                           backgroundColor: Palette.banner,
                           content: Text(
                               "The game has been saved as ${game.name}",
-                              style: TextStyle(color: Theme.of(context).primaryColorLight))
-                      );
+                              style: TextStyle(
+                                  color: Theme.of(context).primaryColorLight)));
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     },
                     child: const Text("Yes"),
                   ),
-                ]
-            )
-    );
+                ]));
   }
 
   void _showEndDialog(BuildContext context) {
@@ -215,18 +185,14 @@ class _ChessGameState extends State<ChessGame> {
     var futureValue = showDialog(
         context: context,
         builder: (BuildContext context) => Transform.rotate(
-            angle: (logic.turn() == PieceColor.BLACK) != asBlack
-                ? math.pi
-                : 0,
+            angle: (logic.turn() == PieceColor.BLACK) != asBlack ? math.pi : 0,
             child: SimpleDialog(
                 title: const Text('Promote to'),
                 children: pieces
                     .map((piece) => SimpleDialogOption(
-                    onPressed: () => Navigator.of(context).pop(piece),
-                    child: SizedBox(
-                        height: 64,
-                        child: PieceWidget(piece: piece)
-                    )))
+                        onPressed: () => Navigator.of(context).pop(piece),
+                        child: SizedBox(
+                            height: 64, child: PieceWidget(piece: piece))))
                     .toList())));
     futureValue.then((piece) => logic.promote(piece));
   }
