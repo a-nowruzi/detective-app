@@ -12,7 +12,7 @@ class XO extends StatefulWidget {
 }
 
 class _XOState extends State<XO> {
-  List XorOList = [
+  List xoList = [
     'box',
     'box',
     'box',
@@ -124,14 +124,14 @@ class _XOState extends State<XO> {
                       child: GestureDetector(
                           onTap: () {
                             setState(() {
-                              if (XorOList[index] != 'box') {
+                              if (xoList[index] != 'box') {
                                 return;
                               }
                               if (isTurnO) {
-                                XorOList[index] = 'o';
+                                xoList[index] = 'o';
                                 filledBoxes = filledBoxes + 1;
                               } else {
-                                XorOList[index] = 'x';
+                                xoList[index] = 'x';
                                 filledBoxes = filledBoxes + 1;
                               }
                               isTurnO = !isTurnO;
@@ -182,14 +182,14 @@ class _XOState extends State<XO> {
                               decoration: BoxDecoration(color: kBoxColor, borderRadius: BorderRadius.circular(16)),
                               child: Padding(
                                   padding: const EdgeInsets.all(10.0),
-                                  child: Image(image: AssetImage('assets/games/xo/${XorOList[index]}.png'))))));
+                                  child: Image(image: AssetImage('assets/games/xo/${xoList[index]}.png'))))));
                 })));
   }
 
   void checkWinner() {
     if (boardSize == 3) {
-      if (XorOList[0] == XorOList[1] && XorOList[0] == XorOList[2] && XorOList[0] != 'box') {
-        if (XorOList[0] == txtPlayerO) {
+      if (xoList[0] == xoList[1] && xoList[0] == xoList[2] && xoList[0] != 'box') {
+        if (xoList[0] == txtPlayerO) {
           playerO++;
           winnerO = true;
           finishGame();
@@ -201,8 +201,8 @@ class _XOState extends State<XO> {
         }
       }
 
-      if (XorOList[3] == XorOList[4] && XorOList[3] == XorOList[5] && XorOList[3] != 'box') {
-        if (XorOList[3] == txtPlayerO) {
+      if (xoList[3] == xoList[4] && xoList[3] == xoList[5] && xoList[3] != 'box') {
+        if (xoList[3] == txtPlayerO) {
           playerO++;
           winnerO = true;
           finishGame();
@@ -214,8 +214,8 @@ class _XOState extends State<XO> {
         }
       }
 
-      if (XorOList[6] == XorOList[7] && XorOList[6] == XorOList[8] && XorOList[6] != 'box') {
-        if (XorOList[6] == txtPlayerO) {
+      if (xoList[6] == xoList[7] && xoList[6] == xoList[8] && xoList[6] != 'box') {
+        if (xoList[6] == txtPlayerO) {
           playerO++;
           winnerO = true;
           finishGame();
@@ -227,8 +227,8 @@ class _XOState extends State<XO> {
         }
       }
 
-      if (XorOList[0] == XorOList[3] && XorOList[0] == XorOList[6] && XorOList[0] != 'box') {
-        if (XorOList[0] == txtPlayerO) {
+      if (xoList[0] == xoList[3] && xoList[0] == xoList[6] && xoList[0] != 'box') {
+        if (xoList[0] == txtPlayerO) {
           playerO++;
           winnerO = true;
           finishGame();
@@ -240,8 +240,8 @@ class _XOState extends State<XO> {
         }
       }
 
-      if (XorOList[1] == XorOList[4] && XorOList[1] == XorOList[7] && XorOList[1] != 'box') {
-        if (XorOList[1] == txtPlayerO) {
+      if (xoList[1] == xoList[4] && xoList[1] == xoList[7] && xoList[1] != 'box') {
+        if (xoList[1] == txtPlayerO) {
           playerO++;
           winnerO = true;
           finishGame();
@@ -253,8 +253,8 @@ class _XOState extends State<XO> {
         }
       }
 
-      if (XorOList[2] == XorOList[5] && XorOList[8] == XorOList[2] && XorOList[2] != 'box') {
-        if (XorOList[2] == txtPlayerO) {
+      if (xoList[2] == xoList[5] && xoList[8] == xoList[2] && xoList[2] != 'box') {
+        if (xoList[2] == txtPlayerO) {
           playerO++;
           winnerO = true;
           finishGame();
@@ -266,8 +266,8 @@ class _XOState extends State<XO> {
         }
       }
 
-      if (XorOList[0] == XorOList[4] && XorOList[0] == XorOList[8] && XorOList[0] != 'box') {
-        if (XorOList[0] == txtPlayerO) {
+      if (xoList[0] == xoList[4] && xoList[0] == xoList[8] && xoList[0] != 'box') {
+        if (xoList[0] == txtPlayerO) {
           playerO++;
           winnerO = true;
           finishGame();
@@ -279,8 +279,8 @@ class _XOState extends State<XO> {
         }
       }
 
-      if (XorOList[2] == XorOList[4] && XorOList[2] == XorOList[6] && XorOList[2] != 'box') {
-        if (XorOList[2] == txtPlayerO) {
+      if (xoList[2] == xoList[4] && xoList[2] == xoList[6] && xoList[2] != 'box') {
+        if (xoList[2] == txtPlayerO) {
           playerO++;
           winnerO = true;
           finishGame();
@@ -299,11 +299,11 @@ class _XOState extends State<XO> {
       }
     }
     if (boardSize == 4) {
-      if (XorOList[0] == XorOList[4] &&
-          XorOList[0] == XorOList[8] &&
-          XorOList[0] == XorOList[12] &&
-          XorOList[0] != 'box') {
-        if (XorOList[0] == txtPlayerO) {
+      if (xoList[0] == xoList[4] &&
+          xoList[0] == xoList[8] &&
+          xoList[0] == xoList[12] &&
+          xoList[0] != 'box') {
+        if (xoList[0] == txtPlayerO) {
           playerO++;
           winnerO = true;
           finishGame();
@@ -315,11 +315,11 @@ class _XOState extends State<XO> {
         }
       }
 
-      if (XorOList[1] == XorOList[5] &&
-          XorOList[1] == XorOList[9] &&
-          XorOList[1] == XorOList[13] &&
-          XorOList[1] != 'box') {
-        if (XorOList[1] == txtPlayerO) {
+      if (xoList[1] == xoList[5] &&
+          xoList[1] == xoList[9] &&
+          xoList[1] == xoList[13] &&
+          xoList[1] != 'box') {
+        if (xoList[1] == txtPlayerO) {
           playerO++;
           winnerO = true;
           finishGame();
@@ -331,11 +331,11 @@ class _XOState extends State<XO> {
         }
       }
 
-      if (XorOList[2] == XorOList[6] &&
-          XorOList[2] == XorOList[10] &&
-          XorOList[2] == XorOList[14] &&
-          XorOList[2] != 'box') {
-        if (XorOList[2] == txtPlayerO) {
+      if (xoList[2] == xoList[6] &&
+          xoList[2] == xoList[10] &&
+          xoList[2] == xoList[14] &&
+          xoList[2] != 'box') {
+        if (xoList[2] == txtPlayerO) {
           playerO++;
           winnerO = true;
           finishGame();
@@ -347,11 +347,11 @@ class _XOState extends State<XO> {
         }
       }
 
-      if (XorOList[3] == XorOList[7] &&
-          XorOList[3] == XorOList[11] &&
-          XorOList[3] == XorOList[15] &&
-          XorOList[3] != 'box') {
-        if (XorOList[3] == txtPlayerO) {
+      if (xoList[3] == xoList[7] &&
+          xoList[3] == xoList[11] &&
+          xoList[3] == xoList[15] &&
+          xoList[3] != 'box') {
+        if (xoList[3] == txtPlayerO) {
           playerO++;
           winnerO = true;
           finishGame();
@@ -363,11 +363,11 @@ class _XOState extends State<XO> {
         }
       }
 
-      if (XorOList[0] == XorOList[1] &&
-          XorOList[0] == XorOList[2] &&
-          XorOList[0] == XorOList[3] &&
-          XorOList[0] != 'box') {
-        if (XorOList[0] == txtPlayerO) {
+      if (xoList[0] == xoList[1] &&
+          xoList[0] == xoList[2] &&
+          xoList[0] == xoList[3] &&
+          xoList[0] != 'box') {
+        if (xoList[0] == txtPlayerO) {
           playerO++;
           winnerO = true;
           finishGame();
@@ -379,11 +379,11 @@ class _XOState extends State<XO> {
         }
       }
 
-      if (XorOList[4] == XorOList[5] &&
-          XorOList[4] == XorOList[6] &&
-          XorOList[4] == XorOList[7] &&
-          XorOList[4] != 'box') {
-        if (XorOList[4] == txtPlayerO) {
+      if (xoList[4] == xoList[5] &&
+          xoList[4] == xoList[6] &&
+          xoList[4] == xoList[7] &&
+          xoList[4] != 'box') {
+        if (xoList[4] == txtPlayerO) {
           playerO++;
           winnerO = true;
           finishGame();
@@ -395,11 +395,11 @@ class _XOState extends State<XO> {
         }
       }
 
-      if (XorOList[8] == XorOList[9] &&
-          XorOList[8] == XorOList[10] &&
-          XorOList[8] == XorOList[11] &&
-          XorOList[8] != 'box') {
-        if (XorOList[8] == txtPlayerO) {
+      if (xoList[8] == xoList[9] &&
+          xoList[8] == xoList[10] &&
+          xoList[8] == xoList[11] &&
+          xoList[8] != 'box') {
+        if (xoList[8] == txtPlayerO) {
           playerO++;
           winnerO = true;
           finishGame();
@@ -411,11 +411,11 @@ class _XOState extends State<XO> {
         }
       }
 
-      if (XorOList[12] == XorOList[13] &&
-          XorOList[12] == XorOList[14] &&
-          XorOList[12] == XorOList[15] &&
-          XorOList[12] != 'box') {
-        if (XorOList[12] == txtPlayerO) {
+      if (xoList[12] == xoList[13] &&
+          xoList[12] == xoList[14] &&
+          xoList[12] == xoList[15] &&
+          xoList[12] != 'box') {
+        if (xoList[12] == txtPlayerO) {
           playerO++;
           winnerO = true;
           finishGame();
@@ -427,11 +427,11 @@ class _XOState extends State<XO> {
         }
       }
 
-      if (XorOList[0] == XorOList[5] &&
-          XorOList[0] == XorOList[10] &&
-          XorOList[0] == XorOList[15] &&
-          XorOList[0] != 'box') {
-        if (XorOList[0] == txtPlayerO) {
+      if (xoList[0] == xoList[5] &&
+          xoList[0] == xoList[10] &&
+          xoList[0] == xoList[15] &&
+          xoList[0] != 'box') {
+        if (xoList[0] == txtPlayerO) {
           playerO++;
           winnerO = true;
           finishGame();
@@ -443,11 +443,11 @@ class _XOState extends State<XO> {
         }
       }
 
-      if (XorOList[3] == XorOList[6] &&
-          XorOList[3] == XorOList[9] &&
-          XorOList[3] == XorOList[12] &&
-          XorOList[3] != 'box') {
-        if (XorOList[3] == txtPlayerO) {
+      if (xoList[3] == xoList[6] &&
+          xoList[3] == xoList[9] &&
+          xoList[3] == xoList[12] &&
+          xoList[3] != 'box') {
+        if (xoList[3] == txtPlayerO) {
           playerO++;
           winnerO = true;
           finishGame();
@@ -470,8 +470,8 @@ class _XOState extends State<XO> {
   void finishGame() {
     Future.delayed(const Duration(seconds: 3), () {
       setState(() {
-        for (int i = 0; i < XorOList.length; i++) {
-          XorOList[i] = 'box';
+        for (int i = 0; i < xoList.length; i++) {
+          xoList[i] = 'box';
           filledBoxes = 0;
           winnerO = false;
           winnerX = false;
@@ -482,8 +482,8 @@ class _XOState extends State<XO> {
 
   void clearGame() {
     setState(() {
-      for (int i = 0; i < XorOList.length; i++) {
-        XorOList[i] = 'box';
+      for (int i = 0; i < xoList.length; i++) {
+        xoList[i] = 'box';
       }
       playerO = 0;
       playerX = 0;

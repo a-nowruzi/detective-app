@@ -6,7 +6,7 @@ class CongratulationsDialogO extends StatefulWidget {
   const CongratulationsDialogO({super.key, required this.onPressed});
 
   @override
-  _CongratulationsDialogOState createState() => _CongratulationsDialogOState();
+  State<CongratulationsDialogO> createState() => _CongratulationsDialogOState();
 }
 
 class _CongratulationsDialogOState extends State<CongratulationsDialogO> with SingleTickerProviderStateMixin {
@@ -90,7 +90,7 @@ class CongratulationsDialogX extends StatefulWidget {
   const CongratulationsDialogX({super.key, required this.onPressed});
 
   @override
-  _CongratulationsDialogXState createState() => _CongratulationsDialogXState();
+  State<CongratulationsDialogX> createState() => _CongratulationsDialogXState();
 }
 
 class _CongratulationsDialogXState extends State<CongratulationsDialogX> with SingleTickerProviderStateMixin {
@@ -174,7 +174,7 @@ class CongratulationsDialogEqual extends StatefulWidget {
   const CongratulationsDialogEqual({super.key, required this.onPressed});
 
   @override
-  _CongratulationsDialogEqualState createState() => _CongratulationsDialogEqualState();
+  State<CongratulationsDialogEqual> createState() => _CongratulationsDialogEqualState();
 }
 
 class _CongratulationsDialogEqualState extends State<CongratulationsDialogEqual> with SingleTickerProviderStateMixin {

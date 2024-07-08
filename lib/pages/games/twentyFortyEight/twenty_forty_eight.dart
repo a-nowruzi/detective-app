@@ -1,4 +1,5 @@
 import 'package:detective/shared/app_bar.dart';
+import 'package:detective/shared/colors.dart';
 import 'package:flutter/material.dart';
 import 'constants.dart';
 import 'grid.dart';
@@ -59,7 +60,7 @@ class _TwentyFortyEightState extends State<TwentyFortyEight> {
             size = 20.0;
             break;
         }
-        grids.add(Tile(number, width, height, color, size));
+        grids.add(tile(number, width, height, color, size));
       }
     }
     return grids;
@@ -176,11 +177,14 @@ class _TwentyFortyEightState extends State<TwentyFortyEight> {
     double width = MediaQuery.of(context).size.width;
     double gridWidth = (width - 80) / 4;
     double gridHeight = gridWidth;
-    double height = 30 + (gridHeight * 4) + 10;
+    double height = 30 + (gridHeight * 4) + 40;
 
     return Scaffold(
         appBar: Header.appBar('2048'),
-        body: SingleChildScrollView(
+        backgroundColor: Palette.bg,
+        body: Directionality(
+          textDirection: TextDirection.ltr,
+          child: SingleChildScrollView(
             child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Column(children: <Widget>[
@@ -291,6 +295,6 @@ class _TwentyFortyEightState extends State<TwentyFortyEight> {
                                       })
                                 ])))
                       ]))
-                ]))));
+                ])))));
   }
 }
