@@ -1,11 +1,12 @@
 import 'package:detective/pages/games/chess/chess.dart';
-import 'package:detective/pages/games/twentyFortyEight/twenty_forty_eight.dart';
+import 'package:detective/pages/games/sudoku/sudoku.dart';
 import 'package:detective/pages/games/xo/xo.dart';
 import 'package:detective/shared/app_bar.dart';
 import 'package:detective/shared/colors.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'package:get/get.dart';
+import '../games/twenty_forty_eight/twenty_forty_eight.dart';
 
 class Games extends StatefulWidget {
   const Games({super.key});
@@ -38,8 +39,13 @@ class _GamesState extends State<Games> {
     return Scaffold(
         appBar: Header.appBar('بازی ها'),
         backgroundColor: Palette.bg,
-        body: Column(
-            children: [item('شطرنج ️', 'chess', const ChessGame()), item('تیک تاک تو', 'xo', const XO()), item('2048', 'xo', const TwentyFortyEight())]));
+        body: ListView(children: [
+          item('شطرنج ️', 'chess', const ChessGame()),
+          item('تیک تاک تو', 'xo', const XO()),
+          item('سودوکو', 'sudoku', const Sudoku()),
+          item('2048', '2048', const TwentyFortyEight()),
+          item('پازل', 'puzzle', const Sudoku())
+        ]));
   }
 
   Widget item(String title, String image, Widget nav) {

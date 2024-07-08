@@ -24,6 +24,10 @@ dependencies:
   localstorage: ^4.0.1+4
   get_it: ^7.6.7
   flutter_svg: ^2.0.10+1
+  sudoku_solver_generator: ^2.1.0+1
+  sudoku_dart: ^1.1.0
+  shared_preferences: ^2.2.3
+#  flutter_animated_dialog: ^2.0.1
 
 dev_dependencies:
   flutter_test:
