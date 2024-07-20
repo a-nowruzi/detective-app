@@ -1,17 +1,9 @@
 import 'dart:async';
-import 'dart:math';
 import 'package:detective/shared/app_bar.dart';
 import 'package:detective/shared/colors.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sudoku_solver_generator/sudoku_solver_generator.dart';
-import 'alerts/about.dart';
-import 'alerts/accent_colors.dart';
-import 'alerts/difficulty.dart';
-import 'alerts/exit.dart';
-import 'alerts/game_over.dart';
-import 'alerts/numbers.dart';
 import 'board_style.dart';
 import 'styles.dart';
 
@@ -35,14 +27,6 @@ class _SudokuState extends State<Sudoku> {
   static String? currentDifficultyLevel;
   static String? currentTheme;
   static String? currentAccentColor;
-  static String platform = () {
-    if (kIsWeb) {
-      return 'web-${defaultTargetPlatform.toString().replaceFirst("TargetPlatform.", "").toLowerCase()}';
-    } else {
-      return defaultTargetPlatform.toString().replaceFirst("TargetPlatform.", "").toLowerCase();
-    }
-  }();
-  static bool isDesktop = ['windows', 'linux', 'macos'].contains(platform);
 
   @override
   void initState() {
@@ -286,17 +270,17 @@ class _SudokuState extends State<Sudoku> {
                 },
           onLongPress: isButtonDisabled || gameCopy[k][i] != 0 ? null : () => callback([k, i], 0),
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(buttonColor(k, i)),
-            foregroundColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
-              if (states.contains(MaterialState.disabled)) {
+            backgroundColor: WidgetStateProperty.all<Color>(buttonColor(k, i)),
+            foregroundColor: WidgetStateProperty.resolveWith<Color>((Set<WidgetState> states) {
+              if (states.contains(WidgetState.disabled)) {
                 return gameCopy[k][i] == 0 ? emptyColor(gameOver) : Styles.foregroundColor;
               }
               return game[k][i] == 0 ? buttonColor(k, i) : Styles.secondaryColor;
             }),
-            shape: MaterialStateProperty.all<OutlinedBorder>(RoundedRectangleBorder(
+            shape: WidgetStateProperty.all<OutlinedBorder>(RoundedRectangleBorder(
               borderRadius: buttonEdgeRadius(k, i),
             )),
-            side: MaterialStateProperty.all<BorderSide>(BorderSide(
+            side: WidgetStateProperty.all<BorderSide>(BorderSide(
               color: Styles.foregroundColor,
               width: 1,
               style: BorderStyle.solid,
@@ -324,6 +308,22 @@ class _SudokuState extends State<Sudoku> {
     );
   }
 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: Header.appBar('سودوکو'),
+        backgroundColor: Palette.bg,
+        body: Container(
+          padding: const EdgeInsets.all(20),
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: createRows())
+        ),
+        floatingActionButton: FloatingActionButton(
+            foregroundColor: Styles.primaryBackgroundColor,
+            backgroundColor: isFABDisabled ? Styles.primaryColor[900] : Styles.primaryColor,
+            onPressed: isFABDisabled ? null : () => showOptionModalSheet(context),
+            child: const Icon(Icons.menu_rounded)));
+  }
+
   List<Row> createRows() {
     List<Row> rowList = List<Row>.generate(9, (i) => oneRow());
     return rowList;
@@ -343,7 +343,6 @@ class _SudokuState extends State<Sudoku> {
   }
 
   showOptionModalSheet(BuildContext context) {
-    BuildContext outerContext = context;
     showModalBottomSheet(
         context: context,
         isScrollControlled: true,
@@ -439,58 +438,8 @@ class _SudokuState extends State<Sudoku> {
                   });
                 },
               ),
-              ListTile(
-                leading: Icon(Icons.info_outline_rounded, color: Styles.foregroundColor),
-                title: Text('About', style: customStyle),
-                onTap: () {
-                  Navigator.pop(context);
-                  Timer(const Duration(milliseconds: 200), () {
-                    // showAnimatedDialog<void>(
-                    //     animationType: DialogTransitionType.fadeScale,
-                    //     barrierDismissible: true,
-                    //     duration: const Duration(milliseconds: 350),
-                    //     context: outerContext,
-                    //     builder: (_) => const AlertAbout())
-                  });
-                },
-              ),
             ],
           );
         });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return WillPopScope(
-        onWillPop: () async {
-          if (kIsWeb) {
-            return false;
-          } else {
-            // showAnimatedDialog<void>(
-            //     animationType: DialogTransitionType.fadeScale,
-            //     barrierDismissible: true,
-            //     duration: const Duration(milliseconds: 350),
-            //     context: context,
-            //     builder: (_) => const AlertExit());
-          }
-          return true;
-        },
-        child: Scaffold(
-            backgroundColor: Styles.primaryBackgroundColor,
-            appBar: PreferredSize(preferredSize: const Size.fromHeight(56.0), child: Header.appBar('سودوکو')),
-            body: Builder(builder: (builder) {
-              return Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: createRows(),
-                ),
-              );
-            }),
-            floatingActionButton: FloatingActionButton(
-              foregroundColor: Styles.primaryBackgroundColor,
-              backgroundColor: isFABDisabled ? Styles.primaryColor[900] : Styles.primaryColor,
-              onPressed: isFABDisabled ? null : () => showOptionModalSheet(context),
-              child: const Icon(Icons.menu_rounded),
-            )));
   }
 }

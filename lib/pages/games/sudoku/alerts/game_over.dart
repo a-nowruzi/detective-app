@@ -6,7 +6,7 @@ class AlertGameOver extends StatelessWidget {
   static bool newGame = false;
   static bool restartGame = false;
 
-  const AlertGameOver({Key? key}) : super(key: key);
+  const AlertGameOver({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +23,7 @@ class AlertGameOver extends StatelessWidget {
       ),
       actions: [
         TextButton(
-          style: ButtonStyle(
-              foregroundColor:
-                  MaterialStateProperty.all<Color>(Styles.primaryColor)),
+          style: ButtonStyle(foregroundColor: WidgetStateProperty.all<Color>(Styles.primaryColor)),
           onPressed: () {
             Navigator.pop(context);
             restartGame = true;
@@ -33,9 +31,7 @@ class AlertGameOver extends StatelessWidget {
           child: const Text('Restart Game'),
         ),
         TextButton(
-          style: ButtonStyle(
-              foregroundColor:
-                  MaterialStateProperty.all<Color>(Styles.primaryColor)),
+          style: ButtonStyle(foregroundColor: WidgetStateProperty.all<Color>(Styles.primaryColor)),
           onPressed: () {
             Navigator.pop(context);
             newGame = true;

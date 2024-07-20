@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../styles.dart';
 
 class AlertNumbersState extends StatefulWidget {
-  const AlertNumbersState({Key? key}) : super(key: key);
+  const AlertNumbersState({super.key});
 
   @override
   AlertNumbers createState() => AlertNumbers();
@@ -40,15 +40,12 @@ class AlertNumbers extends State<AlertNumbersState> {
               })
             },
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all<Color>(
-                  Styles.secondaryBackgroundColor),
-              foregroundColor:
-                  MaterialStateProperty.all<Color>(Styles.primaryColor),
-              shape: MaterialStateProperty.all<OutlinedBorder>(
-                  RoundedRectangleBorder(
+              backgroundColor: WidgetStateProperty.all<Color>(Styles.secondaryBackgroundColor),
+              foregroundColor: WidgetStateProperty.all<Color>(Styles.primaryColor),
+              shape: WidgetStateProperty.all<OutlinedBorder>(RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5),
               )),
-              side: MaterialStateProperty.all<BorderSide>(BorderSide(
+              side: WidgetStateProperty.all<BorderSide>(BorderSide(
                 color: Styles.foregroundColor,
                 width: 1,
                 style: BorderStyle.solid,

@@ -21,7 +21,7 @@ Color buttonColor(int k, int i) {
 }
 
 double buttonSize() {
-  double size = 50;
+  double size = 38;
   // if (Sudo.platform.contains('android') ||
   //     HomePageState.platform.contains('ios')) {
   //   size = 38;
