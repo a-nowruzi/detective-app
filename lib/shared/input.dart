@@ -1,6 +1,5 @@
 import 'package:detective/shared/colors.dart';
 import 'package:flutter/material.dart';
-
 import 'convertor.dart';
 
 class TextInput {
@@ -13,9 +12,9 @@ class TextInput {
     return Container(
         height: 55,
         width: double.infinity,
-        decoration: BoxDecoration(boxShadow: [
-          BoxShadow(color: Palette.second.withOpacity(0.1), spreadRadius: 3, blurRadius: 4, offset: const Offset(0, 2))
-        ]),
+        // decoration: BoxDecoration(boxShadow: [
+        //   BoxShadow(color: Palette.second.withOpacity(0.1), spreadRadius: 3, blurRadius: 4, offset: const Offset(0, 2))
+        // ]),
         child: TextFormField(
             controller: controller,
             textDirection: (type == TextInputType.emailAddress || type == TextInputType.phone)
